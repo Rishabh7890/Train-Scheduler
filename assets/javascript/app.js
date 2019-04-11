@@ -58,11 +58,11 @@ database.ref().on("child_added", function(childSnapshot) {
   // create new table row 
   var $tr = $("<tr>");
   // create <td> tags for each column and add the content from childSnapshot.val() to them
-  var $trainName = $("#trainName").text(trainInfo.name);
-  var $trainDest = $("#trainDest").text(trainInfo.destination);
-  var $trainFreq = $("#trainFreq").text(trainInfo.frequency);
-  var $nextArrival = ("#nextArrival").text(nextArrival.format("HH:mm"));
-  var $minAway = ("#minAway").text(minutesAway);
+  var $trainName = $("<td>").text(trainInfo.name);
+  var $trainDest = $("<td>").text(trainInfo.destination);
+  var $trainFreq = $("<td>").text(trainInfo.frequency);
+  var $nextArrival = $("<td>").text(nextArrival.format("HH:mm"));
+  var $minAway = $("<td>").text(minutesAway);
   // append td tags to table row 
   $tr.append($trainName, $trainDest, $trainFreq, $nextArrival, $minAway);
   // append table row to tbody 
