@@ -6,14 +6,16 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto|Sriracha" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <title>Train Scheduler</title>
 </head>
 <body>
 
-  <header class="jumbotron jumbotron-fluid">
+  <header class="jumbotron jumbotron-fluid jumboCustom">
     <div class="container-fluid text-center">
-      <h1 class="display-4">Train Tracker</h1>
+      <h1 class="display-4"><i class="fa fa-train" aria-hidden="true"></i> Train Tracker</h1>
+      <hr>
       <h4>Add the information on trains you frequently take to see their schedules! </h4>
     </div>
   </header>
@@ -23,7 +25,7 @@
         <!-- left column -->
         <aside class="col-12 col-md-3">
           <div class="card">
-            <h4 class="card-header bg-success text-light">
+            <h4 class="card-header text-light">
               Add a train
             </h4>
             <div class="card-body">
@@ -54,7 +56,7 @@
                   <div class="error-message" id="invalid-freq"></div>
                 </div>
                 <!-- submit button -->
-                <button class="btn btn-block btn-success" type="submit">Add Train</button>
+                <button class="btn btn-block text-light" type="submit">Add Train</button>
               </form>
               <!-- end form -->
             </div>
@@ -66,7 +68,7 @@
         <section class="col-12 col-md-9">
           <!-- create card -->
           <div class="card">
-            <h4 class="card-header bg-success text-light">
+            <h4 class="card-header text-light">
               Train Information
             </h4>
             <div class="card-body">

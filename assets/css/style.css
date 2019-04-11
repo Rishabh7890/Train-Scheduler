@@ -1,0 +1,25 @@
+.display-4 {
+  font-family: 'Sriracha', cursive;
+  color: white;
+}
+
+h4 {
+  color: white;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color:rgb(174, 180, 192);
+}
+
+.jumboCustom {
+  background-color: rgb(14, 38, 90);
+}
+
+.card-header {
+  background-color: rgb(14, 38, 90);
+}
+
+.btn {
+  background-color: rgb(14, 38, 90);
+}
