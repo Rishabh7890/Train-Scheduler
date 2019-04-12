@@ -9,17 +9,31 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
+// set up and display running date and time using moment.js 
+var datetime = null;
+var date = null;
+
+var update = function () {
+  date = moment(new Date())
+  datetime.html(date.format('dddd, MMMM Do YYYY, HH:mm:ss'));
+};
+
+$(document).ready(function () {
+  datetime = $('#datetime')
+  update();
+  setInterval(update, 1000);
+});
 
 // set up an event listener for form submit to capture train info
-$("#train-form").on("submit", function(event) {
+$("#train-form").on("submit", function (event) {
   event.preventDefault();
 
   //get info for form 
   var trainInfoInput = {
-    name : $("#train-input").val().trim(),
-    destination : $("#train-dest").val().trim(),
-    firstTrain :  $("#first-train").val().trim(), 
-    frequency : parseInt($("#train-freq").val().trim())
+    name: $("#train-input").val().trim(),
+    destination: $("#train-dest").val().trim(),
+    firstTrain: $("#first-train").val().trim(),
+    frequency: parseInt($("#train-freq").val().trim())
   }
   // console log trainInfoInput to see if values entered made it
   console.log(trainInfoInput);
@@ -28,7 +42,7 @@ $("#train-form").on("submit", function(event) {
 });
 
 // event listener to retrieve newly added pieces of data that were added with .push() method to firebase 
-database.ref().on("child_added", function(childSnapshot) {
+database.ref().on("child_added", function (childSnapshot) {
   console.log(childSnapshot.val());
   //save a reference to the data in childSnapshot 
   var trainInfo = childSnapshot.val();
@@ -43,7 +57,7 @@ database.ref().on("child_added", function(childSnapshot) {
   var timeDif = moment().diff(moment(convertedTime), "minutes");
   // console log the time difference 
   console.log(timeDif);
-  // Calculate time remaining until nect train 
+  // Calculate time remaining until next train 
   var timeRem = timeDif % trainInfo.frequency;
   //console log time remaining 
   console.log(timeRem);
@@ -70,4 +84,3 @@ database.ref().on("child_added", function(childSnapshot) {
 
 
 })
-
